@@ -63,6 +63,26 @@ const Header = ({ onBack }) => {
     <View style={styles.header}>
       <View style={{ alignItems: 'flex-start', width: '100%', zIndex: 1000 }}>
         <Icon name="arrow-left" type="material-community" size={25} onPress={onBack} />
+        <Text style={{ marginTop: 30, fontSize: 26, fontWeight: '600' }}>Ofspace Digital Agency Website</Text>
+        <TouchableOpacity style={{ marginTop: 30, flexDirection: 'row', justifyContent: 'space-between', width: '100%', height: 70, borderRadius: 5, backgroundColor: colors.GREY.SECONDARY, paddingTop: 20, paddingLeft: 20, paddingRight: 20 }}>
+          <View style={{ flexDirection: 'row' }}>
+            <Text style={{ fontSize: 28, fontWeight: 'bold', color: '#6F778D' }}>0</Text>
+            <Text style={{ fontSize: 28, fontWeight: 'bold', color: colors.BLACK }}>7</Text>
+            <Text style={{ fontSize: 16, fontWeight: 'bold', color: '#6F778D' }}>H</Text>
+            <Text style={{ marginLeft: 5, fontSize: 28, fontWeight: 'bold', color: colors.BLACK }}>49</Text>
+            <Text style={{ fontSize: 16, fontWeight: 'bold', color: '#6F778D' }}>M</Text>
+            <Text style={{ marginLeft: 5, fontSize: 28, fontWeight: 'bold', color: colors.BLACK }}>12</Text>
+            <Text style={{ fontSize: 16, fontWeight: 'bold', color: '#6F778D' }}>S</Text>
+          </View>
+          <View style={{ flexDirection: 'row' }}>
+            <TouchableOpacity style={{ width: 30, height: 30, borderRadius: 15, backgroundColor: '#5D36E2', justifyContent: 'center', alignItems: 'center' }}>
+              <Icon name="pause" type="material-community" size={20} color={colors.WHITE} />
+            </TouchableOpacity>
+            <TouchableOpacity style={{ marginLeft: 10, width: 30, height: 30, borderRadius: 15, backgroundColor: '#382553', justifyContent: 'center', alignItems: 'center' }}>
+              <Icon name="stop" type="material-community" size={20} color={colors.WHITE} />
+            </TouchableOpacity>
+          </View>
+        </TouchableOpacity>
       </View>
     </View>
   )
@@ -109,30 +129,8 @@ export default class Detail1 extends Component {
     return (
       <View style={styles.container}>
         <Header onBack={() => this.props.navigation.goBack()} />
-        <ScrollView >
-          <View style={{ backgroundColor: colors.WHITE, paddingLeft: 30, paddingBottom: 30 }}>
-            <Text style={{ marginTop: 10, fontSize: 26, fontWeight: '600' }}>Ofspace Digital Agency Website</Text>
-            <TouchableOpacity style={{ marginTop: 30, flexDirection: 'row', justifyContent: 'space-between', width: wp('100%') - 60, height: 70, borderRadius: 5, backgroundColor: colors.GREY.SECONDARY, paddingTop: 20, paddingLeft: 20, paddingRight: 20 }}>
-              <View style={{ flexDirection: 'row' }}>
-                <Text style={{ fontSize: 28, fontWeight: 'bold', color: '#6F778D' }}>0</Text>
-                <Text style={{ fontSize: 28, fontWeight: 'bold', color: colors.BLACK }}>7</Text>
-                <Text style={{ fontSize: 16, fontWeight: 'bold', color: '#6F778D' }}>H</Text>
-                <Text style={{ marginLeft: 5, fontSize: 28, fontWeight: 'bold', color: colors.BLACK }}>49</Text>
-                <Text style={{ fontSize: 16, fontWeight: 'bold', color: '#6F778D' }}>M</Text>
-                <Text style={{ marginLeft: 5, fontSize: 28, fontWeight: 'bold', color: colors.BLACK }}>12</Text>
-                <Text style={{ fontSize: 16, fontWeight: 'bold', color: '#6F778D' }}>S</Text>
-              </View>
-              <View style={{ flexDirection: 'row' }}>
-                <TouchableOpacity style={{ width: 30, height: 30, borderRadius: 15, backgroundColor: '#5D36E2', justifyContent: 'center', alignItems: 'center' }}>
-                  <Icon name="pause" type="material-community" size={20} color={colors.WHITE} />
-                </TouchableOpacity>
-                <TouchableOpacity style={{ marginLeft: 10, width: 30, height: 30, borderRadius: 15, backgroundColor: '#382553', justifyContent: 'center', alignItems: 'center' }}>
-                  <Icon name="stop" type="material-community" size={20} color={colors.WHITE} />
-                </TouchableOpacity>
-              </View>
-            </TouchableOpacity>
-          </View>
-          <View style={{ flexDirection: 'row', justifyContent: 'space-between', padding: 30 }}>
+        <ScrollView style={{ padding: 30 }}>
+          <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
             <TouchableOpacity style={[styles.topButton, { borderTopLeftRadius: 10, borderBottomLeftRadius: 10 }]}>
               <Text style={{ fontWeight: 'bold', color: colors.BLACK }}>In Progress</Text>
             </TouchableOpacity>
@@ -143,7 +141,7 @@ export default class Detail1 extends Component {
               <Text style={{ fontWeight: 'bold', color: colors.GREY.PRIMARY }}>Complete</Text>
             </TouchableOpacity>
           </View>
-          <View style={{ paddingLeft: 30, flexDirection: 'row', alignItems: 'center' }}>
+          <View style={{ marginTop: 30, flexDirection: 'row', alignItems: 'center' }}>
             <Text style={{ fontSize: 22, fontWeight: '600' }}>Design</Text>
             <TouchableOpacity>
               <Text style={{ marginLeft: 5, fontWeight: 'bold', color: '#5634CA' }}>(05:45:58)</Text>
@@ -161,7 +159,7 @@ export default class Detail1 extends Component {
               })
             }
           </View>
-          <View style={{ paddingLeft: 30, flexDirection: 'row', alignItems: 'center' }}>
+          <View style={{ marginTop: 30, flexDirection: 'row', alignItems: 'center' }}>
             <Text style={{ fontSize: 22, fontWeight: '600' }}>Development</Text>
             <TouchableOpacity>
               <Text style={{ marginLeft: 5, fontWeight: 'bold', color: '#5634CA' }}>(03:05:05)</Text>
@@ -195,7 +193,7 @@ const styles = StyleSheet.create({
     width: wp('100%'),
     // height: 200,
     paddingTop: Platform.OS === 'ios' ? 80 : 30,
-    paddingLeft: 30, paddingRight: 30, paddingBottom: 20,
+    paddingLeft: 30, paddingRight: 30, paddingBottom: 30,
     backgroundColor: colors.WHITE
   },
   topButton: {
@@ -211,9 +209,9 @@ const styles = StyleSheet.create({
     elevation: 5
   },
   recent: {
-    margin: 30,
+    marginTop: 20,
     paddingLeft: 10, paddingRight: 10,
-    width: wp('100%') -60,
+    width: '100%',
     // height: wp('80%') / 2 + 50,
     backgroundColor: colors.WHITE,
     borderRadius: 10,

@@ -63,6 +63,7 @@ const Header = ({ onBack }) => {
     <View style={styles.header}>
       <View style={{ alignItems: 'flex-start', width: '100%', zIndex: 1000 }}>
         <Icon name="arrow-left" type="material-community" size={25} onPress={onBack} />
+        <Text style={{ marginTop: 30, fontSize: 26, fontWeight: '600' }}>Ofspace Digital Agency Website</Text>
       </View>
     </View>
   )
@@ -109,11 +110,8 @@ export default class Detail extends Component {
     return (
       <View style={styles.container}>
         <Header onBack={() => this.props.navigation.goBack()} />
-        <ScrollView>
-          <View style={{ backgroundColor: colors.WHITE, paddingLeft: 30, paddingBottom: 30 }}>
-            <Text style={{ marginTop: 10, fontSize: 26, fontWeight: '600' }}>Ofspace Digital Agency Website</Text>
-          </View>
-          <View style={{ flexDirection: 'row', justifyContent: 'space-between', padding: 30 }}>
+        <ScrollView style={{ padding: 30 }}>
+          <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
             <TouchableOpacity style={[styles.topButton, { borderTopLeftRadius: 10, borderBottomLeftRadius: 10 }]}>
               <Text style={{ fontWeight: 'bold', color: colors.GREY.PRIMARY }}>In Progress</Text>
             </TouchableOpacity>
@@ -124,7 +122,7 @@ export default class Detail extends Component {
               <Text style={{ fontWeight: 'bold', color: colors.GREY.PRIMARY }}>Complete</Text>
             </TouchableOpacity>
           </View>
-          <View style={{ paddingLeft: 30, paddingRight: 30, flexDirection: 'row', alignItems: 'center' }}>
+          <View style={{ marginTop: 30, flexDirection: 'row', alignItems: 'center' }}>
             <Text style={{ fontSize: 22, fontWeight: '600' }}>Design</Text>
             <TouchableOpacity>
               <Text style={{ marginLeft: 5, fontWeight: 'bold', color: '#5634CA' }}>(3 Assigned)</Text>
@@ -142,7 +140,7 @@ export default class Detail extends Component {
               })
             }
           </View>
-          <View style={{ marginTop: 20, paddingLeft: 30, paddingRight: 30, flexDirection: 'row', alignItems: 'center' }}>
+          <View style={{ marginTop: 30, flexDirection: 'row', alignItems: 'center' }}>
             <Text style={{ fontSize: 22, fontWeight: '600' }}>Development</Text>
             <TouchableOpacity>
               <Text style={{ marginLeft: 5, fontWeight: 'bold', color: '#5634CA' }}>(2 Assigned)</Text>
@@ -176,7 +174,7 @@ const styles = StyleSheet.create({
     width: wp('100%'),
     // height: 200,
     paddingTop: Platform.OS === 'ios' ? 80 : 30,
-    paddingLeft: 30, paddingRight: 30, paddingBottom: 20,
+    paddingLeft: 30, paddingRight: 30, paddingBottom: 30,
     backgroundColor: colors.WHITE
   },
   topButton: {
@@ -193,9 +191,8 @@ const styles = StyleSheet.create({
   },
   recent: {
     marginTop: 20,
-    marginLeft: 30, marginRight: 30,
     paddingLeft: 10, paddingRight: 10,
-    width: wp('100%') - 60,
+    width: '100%',
     // height: wp('80%') / 2 + 50,
     backgroundColor: colors.WHITE,
     borderRadius: 10,

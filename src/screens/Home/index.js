@@ -51,6 +51,10 @@ const projects = [
 ]
 
 const Header = ({ option, onChange }) => {
+  const size = wp('100%') / 3 + 30;
+  const strokeWidth = 18;
+  const radius = (size - strokeWidth) / 2;
+  const circum = radius * 2 * Math.PI;
   return (
     <View style={styles.header}>
       <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', width: '100%', zIndex: 1000 }}>
@@ -59,6 +63,97 @@ const Header = ({ option, onChange }) => {
           <Text>Overall</Text>
           <Icon name="arrow-drop-down" type="material" size={18} color="#606474" />
         </TouchableOpacity>
+      </View>
+      <View style={{ marginTop: 40, width: '100%', flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', width: '100%' }}>
+        <Svg width={size} height={size}>
+          <Circle
+            stroke={colors.GREY.LIGHT}
+            fill="none"
+            cx={size / 2}
+            cy={size / 2}
+            r={radius}
+            {...{ strokeWidth }}
+          />
+          <Circle
+            stroke={colors.RED.PRIMARY}
+            fill="none"
+            cx={size / 2}
+            cy={size / 2}
+            r={radius}
+            strokeDasharray={`${circum} ${circum}`}
+            strokeDashoffset={radius * Math.PI * 2 * (10 / 100)}
+            strokeLinecap="round"
+            transform={`rotate(-90, ${size / 2}, ${size / 2})`}
+            {...{ strokeWidth }}
+          />
+          <Circle
+            stroke={colors.YELLOW.PRIMARY}
+            fill="none"
+            cx={size / 2}
+            cy={size / 2}
+            r={radius}
+            strokeDasharray={`${circum} ${circum}`}
+            strokeDashoffset={radius * Math.PI * 2 * (40 / 100)}
+            strokeLinecap="round"
+            transform={`rotate(-90, ${size / 2}, ${size / 2})`}
+            {...{ strokeWidth }}
+          />
+          <Circle
+            stroke={colors.BLUE.PRIMARY}
+            fill="none"
+            cx={size / 2}
+            cy={size / 2}
+            r={radius}
+            strokeDasharray={`${circum} ${circum}`}
+            strokeDashoffset={radius * Math.PI * 2 * (60 / 100)}
+            strokeLinecap="round"
+            transform={`rotate(-90, ${size / 2}, ${size / 2})`}
+            {...{ strokeWidth }}
+          />
+          <SVGText
+            fontSize={32}
+            fontWeight='bold'
+            x={size / 2}
+            y={size / 2}
+            textAnchor="middle"
+            fill={colors.BLACK}
+          >
+            {"26"}
+          </SVGText>
+          <SVGText
+            fontSize={13}
+            fontWeight='bold'
+            x={size / 2}
+            y={size / 2 + 20}
+            textAnchor="middle"
+            fill={colors.GREY.PRIMARY}
+          >
+            {"Total Project"}
+          </SVGText>
+        </Svg>
+        <View style={{ width: '35%', height: wp('100%') / 3 + 30, justifyContent: 'space-between' }}>
+          <View style={{ flexDirection: 'row' }}>
+            <View style={[styles.pin, { backgroundColor: colors.RED.PRIMARY }]} />
+            <View style={{ marginLeft: 10 }}>
+              <Text style={{ fontSize: 21, fontWeight: '400' }}>41%</Text>
+              <Text style={{ fontSize: 16, color: colors.GREY.PRIMARY }}>Done</Text>
+            </View>
+          </View>
+          <View style={{ flexDirection: 'row' }}>
+            <View style={[styles.pin, { backgroundColor: colors.YELLOW.PRIMARY }]} />
+            <View style={{ marginLeft: 10 }}>
+              <Text style={{ fontSize: 21, fontWeight: '400' }}>23%</Text>
+              <Text style={{ fontSize: 16, color: colors.GREY.PRIMARY }}>To Do</Text>
+            </View>
+          </View>
+          <View style={{ flexDirection: 'row' }}>
+            <View style={[styles.pin, { backgroundColor: colors.BLUE.PRIMARY }]} />
+            <View style={{ marginLeft: 10 }}>
+              <Text style={{ fontSize: 21, fontWeight: '400' }}>35%</Text>
+              <Text style={{ fontSize: 16, color: colors.GREY.PRIMARY }}>Pending</Text>
+            </View>
+          </View>
+        </View>
       </View>
     </View>
   )
@@ -104,119 +199,24 @@ export default class Home extends Component {
   }
 
   render() {
-    const size = wp('100%') / 3 + 30;
-    const strokeWidth = 18;
-    const radius = (size - strokeWidth) / 2;
-    const circum = radius * 2 * Math.PI;
     return (
       <View style={styles.container}>
         <Header option={this.state.option} onChange={(item) => this.setState({ option: item })} />
-        <ScrollView>
-          <View style={{ padding: 30, backgroundColor: colors.WHITE, marginTop: 0, width: '100%', flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', width: '100%' }}>
-            <Svg width={size} height={size}>
-              <Circle
-                stroke={colors.GREY.LIGHT}
-                fill="none"
-                cx={size / 2}
-                cy={size / 2}
-                r={radius}
-                {...{ strokeWidth }}
-              />
-              <Circle
-                stroke={colors.RED.PRIMARY}
-                fill="none"
-                cx={size / 2}
-                cy={size / 2}
-                r={radius}
-                strokeDasharray={`${circum} ${circum}`}
-                strokeDashoffset={radius * Math.PI * 2 * (10 / 100)}
-                strokeLinecap="round"
-                transform={`rotate(-90, ${size / 2}, ${size / 2})`}
-                {...{ strokeWidth }}
-              />
-              <Circle
-                stroke={colors.YELLOW.PRIMARY}
-                fill="none"
-                cx={size / 2}
-                cy={size / 2}
-                r={radius}
-                strokeDasharray={`${circum} ${circum}`}
-                strokeDashoffset={radius * Math.PI * 2 * (40 / 100)}
-                strokeLinecap="round"
-                transform={`rotate(-90, ${size / 2}, ${size / 2})`}
-                {...{ strokeWidth }}
-              />
-              <Circle
-                stroke={colors.BLUE.PRIMARY}
-                fill="none"
-                cx={size / 2}
-                cy={size / 2}
-                r={radius}
-                strokeDasharray={`${circum} ${circum}`}
-                strokeDashoffset={radius * Math.PI * 2 * (60 / 100)}
-                strokeLinecap="round"
-                transform={`rotate(-90, ${size / 2}, ${size / 2})`}
-                {...{ strokeWidth }}
-              />
-              <SVGText
-                fontSize={32}
-                fontWeight='bold'
-                x={size / 2}
-                y={size / 2}
-                textAnchor="middle"
-                fill={colors.BLACK}
-              >
-                {"26"}
-              </SVGText>
-              <SVGText
-                fontSize={13}
-                fontWeight='bold'
-                x={size / 2}
-                y={size / 2 + 20}
-                textAnchor="middle"
-                fill={colors.GREY.PRIMARY}
-              >
-                {"Total Project"}
-              </SVGText>
-            </Svg>
-            <View style={{ width: '35%', height: wp('100%') / 3 + 30, justifyContent: 'space-between' }}>
-              <View style={{ flexDirection: 'row' }}>
-                <View style={[styles.pin, { backgroundColor: colors.RED.PRIMARY }]} />
-                <View style={{ marginLeft: 10 }}>
-                  <Text style={{ fontSize: 21, fontWeight: '400' }}>41%</Text>
-                  <Text style={{ fontSize: 16, color: colors.GREY.PRIMARY }}>Done</Text>
-                </View>
-              </View>
-              <View style={{ flexDirection: 'row' }}>
-                <View style={[styles.pin, { backgroundColor: colors.YELLOW.PRIMARY }]} />
-                <View style={{ marginLeft: 10 }}>
-                  <Text style={{ fontSize: 21, fontWeight: '400' }}>23%</Text>
-                  <Text style={{ fontSize: 16, color: colors.GREY.PRIMARY }}>To Do</Text>
-                </View>
-              </View>
-              <View style={{ flexDirection: 'row' }}>
-                <View style={[styles.pin, { backgroundColor: colors.BLUE.PRIMARY }]} />
-                <View style={{ marginLeft: 10 }}>
-                  <Text style={{ fontSize: 21, fontWeight: '400' }}>35%</Text>
-                  <Text style={{ fontSize: 16, color: colors.GREY.PRIMARY }}>Pending</Text>
-                </View>
-              </View>
-            </View>
-          </View>
-          <View style={{ padding: 20, flexDirection: 'row', justifyContent: 'space-between' }}>
+        <ScrollView style={{ padding: 30 }}>
+          <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
             <Text style={{ fontSize: 22, fontWeight: '600' }}>Pending Project</Text>
             <TouchableOpacity>
               <Text style={{ fontWeight: '600', color: colors.GREY.PRIMARY, textDecorationColor: colors.GREY.PRIMARY, textDecorationLine: 'underline' }}>View All</Text>
             </TouchableOpacity>
           </View>
-          <View style={{ paddingLeft: 30, paddingRight: 30, flexDirection: 'row', justifyContent: 'space-between' }}>
+          <View style={{ marginTop: 30, flexDirection: 'row', justifyContent: 'space-between' }}>
             {projects.map((item, key) => {
               return (
                 <Project item={item} key={key} onPress={() => this.props.navigation.navigate(item.onPress)} />
               )
             })}
           </View>
-          <Text style={{ marginLeft: 30, marginTop: 30, fontSize: 22, fontWeight: '600' }}>Recent Files</Text>
+          <Text style={{ marginTop: 30, fontSize: 22, fontWeight: '600' }}>Recent Files</Text>
           <View style={styles.recent}>
             <View style={[styles.file, { borderBottomWidth: 1 }]}>
               <Icon name="file" type="material-community" size={30} color={colors.RED.SECONDARY} />
@@ -231,6 +231,7 @@ export default class Home extends Component {
               <Text style={{ marginLeft: 10, fontWeight: 'bold' }}>Feedback of Mobile Page Design</Text>
             </View>
           </View>
+          <View style={{ height: 100 }} />
         </ScrollView>
       </View>
     );
@@ -246,7 +247,7 @@ const styles = StyleSheet.create({
     width: wp('100%'),
     // height: 200,
     paddingTop: Platform.OS === 'ios' ? 80 : 30,
-    paddingLeft: 30, paddingRight: 30, paddingBottom: 20,
+    paddingLeft: 30, paddingRight: 30, paddingBottom: 30,
     backgroundColor: colors.WHITE
   },
   pin: {
@@ -289,9 +290,9 @@ const styles = StyleSheet.create({
     elevation: 5
   },
   recent: {
-    margin: 30,
+    marginTop: 20,
     padding: 10,
-    width: wp('100%') - 60,
+    width: '100%',
     // height: wp('80%') / 2 + 50,
     backgroundColor: colors.WHITE,
     borderRadius: 10,

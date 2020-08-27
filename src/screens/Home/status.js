@@ -60,6 +60,27 @@ const Header = ({ onBack }) => {
             <Text style={{ fontWeight: 'bold' }}>In Progress</Text>
           </TouchableOpacity>
         </View>
+        <Text style={{ marginTop: 30, fontSize: 26, fontWeight: '600' }}>Ofspace Digital Agency Website UI</Text>
+        <Text style={{ marginTop: 10, fontSize: 14, color: colors.GREY.PRIMARY }}>{'A Digital Agency building functional, simple, human-centered products-Branding, UX, UI & Front & Back End Development.'}</Text>
+        <View style={{ marginTop: 20, width: '100%', flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' }}>
+          <TouchableOpacity style={{ justifyContent: 'center', alignItems: 'center', width: 250, height: 35, borderRadius: 5, backgroundColor: colors.GREY.SECONDARY }}>
+            <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+              <Icon name="notifications-none" type="material" size={18} color="#606474" />
+              <Text style={{ fontWeight: 'bold', color: '#606474' }}>Deadline: </Text>
+              <Text style={{ fontWeight: 'bold' }}>Novemeber 12</Text>
+            </View>
+          </TouchableOpacity>
+          <ProgressCircle
+            percent={73}
+            radius={17}
+            borderWidth={3}
+            color={colors.BLUE.PRIMARY}
+            shadowColor={colors.GREY.SECONDARY}
+            bgColor="#fff"
+          >
+            <Text style={{ fontSize: 10, fontWeight: 'bold', color: colors.BLUE.PRIMARY }}>73%</Text>
+          </ProgressCircle>
+        </View>
       </View>
     </View>
   )
@@ -106,34 +127,11 @@ export default class Status extends Component {
     return (
       <View style={styles.container}>
         <Header onBack={() => this.props.navigation.goBack()} />
-        <ScrollView>
-          <View style={{ backgroundColor: colors.WHITE, paddingLeft: 30, paddingRight: 30, paddingTop: 10, paddingBottom: 30 }}>
-            <Text style={{ fontSize: 26, fontWeight: '600' }}>Ofspace Digital Agency Website UI</Text>
-            <Text style={{ marginTop: 10, fontSize: 14, color: colors.GREY.PRIMARY }}>{'A Digital Agency building functional, simple, human-centered products-Branding, UX, UI & Front & Back End Development.'}</Text>
-            <View style={{ marginTop: 20, width: '100%', flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' }}>
-              <TouchableOpacity style={{ justifyContent: 'center', alignItems: 'center', width: 250, height: 35, borderRadius: 5, backgroundColor: colors.GREY.SECONDARY }}>
-                <View style={{ flexDirection: 'row', alignItems: 'center' }}>
-                  <Icon name="notifications-none" type="material" size={18} color="#606474" />
-                  <Text style={{ fontWeight: 'bold', color: '#606474' }}>Deadline: </Text>
-                  <Text style={{ fontWeight: 'bold' }}>Novemeber 12</Text>
-                </View>
-              </TouchableOpacity>
-              <ProgressCircle
-                percent={73}
-                radius={17}
-                borderWidth={3}
-                color={colors.BLUE.PRIMARY}
-                shadowColor={colors.GREY.SECONDARY}
-                bgColor="#fff"
-              >
-                <Text style={{ fontSize: 10, fontWeight: 'bold', color: colors.BLUE.PRIMARY }}>73%</Text>
-              </ProgressCircle>
-            </View>
-          </View>
-          <View style={{ flexDirection: 'row', alignItems: 'center', padding: 30 }}>
+        <ScrollView style={{ padding: 30 }}>
+          <View style={{ flexDirection: 'row', alignItems: 'center' }}>
             <Text style={{ fontSize: 20, fontWeight: '600' }}>Team Members</Text>
           </View>
-          <View style={{ flexDirection: 'row', marginLeft: 15, paddingLeft: 30, paddingRight: 30 }}>
+          <View style={{ flexDirection: 'row', marginLeft: 15, marginTop: 20 }}>
             {users.map((user, imageKey) => {
               return (
                 imageKey != 2 ?
@@ -147,7 +145,7 @@ export default class Status extends Component {
               )
             })}
           </View>
-          <View style={{ padding: 30, flexDirection: 'row', alignItems: 'center' }}>
+          <View style={{ marginTop: 30, flexDirection: 'row', alignItems: 'center', marginBottom: 20 }}>
             <Text style={{ fontSize: 20, fontWeight: '600' }}>Today's Tasks</Text>
           </View>
           {
@@ -183,7 +181,7 @@ const styles = StyleSheet.create({
     width: wp('100%'),
     // height: 200,
     paddingTop: Platform.OS === 'ios' ? 80 : 30,
-    paddingLeft: 30, paddingRight: 30, paddingBottom: 20,
+    paddingLeft: 30, paddingRight: 30, paddingBottom: 30,
     backgroundColor: colors.WHITE
   },
   avatar: {
@@ -217,8 +215,7 @@ const styles = StyleSheet.create({
     // paddingTop: 10, paddingBottom: 10,
     paddingLeft: 10, paddingRight: 10,
     backgroundColor: colors.WHITE,
-    marginLeft: 30, marginRight: 30,
-    width: wp('100%') - 60,
+    width: '100%',
     height: 70,
     borderRadius: 10,
     marginBottom: 15,
